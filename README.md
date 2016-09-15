@@ -1,2 +1,2 @@
 # food-tracker
-my Food Tracker App
+food tracker app
