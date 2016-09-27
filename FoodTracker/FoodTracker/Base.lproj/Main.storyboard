@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TUp-Pq-DSe" id="gLT-0Z-3Ne">
-                                    <frame key="frameInset" width="375" height="89.5"/>
+                                    <frame key="frameInset" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultphoto" translatesAutoresizingMaskIntoConstraints="NO" id="LSt-dW-hRa">
@@ -79,8 +79,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="277-3C-KfW">
-                                <frame key="frameInset" minX="20" minY="80" width="343" height="398"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="277-3C-KfW">
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="1cL-zy-dUr">
                                         <subviews>
@@ -88,10 +87,14 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="FxB-ed-JXI"/>
                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultphoto" translatesAutoresizingMaskIntoConstraints="NO" id="ku6-MI-vM1">
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="ku6-MI-vM1" secondAttribute="height" multiplier="9:10" id="Aj6-75-KQS"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="fmB-6U-pT8" appends="YES" id="58R-P7-cKJ"/>
+                                                </connections>
                                             </imageView>
                                         </subviews>
                                     </stackView>
@@ -118,12 +121,12 @@
                     <navigationItem key="navigationItem" title="New Meal" id="lfc-KZ-zO3">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="MNY-wf-hfK">
                             <connections>
-                                <action selector="cancel:" destination="BYZ-38-t0r" id="pyt-BC-EmY"/>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="rSY-c6-mNu"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="4ew-7Q-UmH">
                             <connections>
-                                <segue destination="ODg-B6-bez" kind="unwind" unwindAction="unwindToMealList:" id="bOn-sn-NkE"/>
+                                <action selector="save:" destination="BYZ-38-t0r" id="nNt-x7-ihO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -133,6 +136,8 @@
                         <outlet property="photoImageView" destination="ku6-MI-vM1" id="MST-36-pYC"/>
                         <outlet property="ratingControl" destination="IBH-gi-6Qh" id="HaC-Og-8go"/>
                         <outlet property="saveButton" destination="4ew-7Q-UmH" id="7Qn-nt-5QW"/>
+                        <outlet property="saveSpinner" destination="FxB-ed-JXI" id="ie2-Ew-Srm"/>
+                        <segue destination="ODg-B6-bez" kind="unwind" identifier="unwindToMealList" unwindAction="unwindToMealList:" id="5pz-C7-p2d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -143,7 +148,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1523" y="221"/>
+            <point key="canvasLocation" x="1158" y="1012"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3e7-wA-EuD">
@@ -179,13 +184,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rc2-H2-oR6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="726" y="1013"/>
+            <point key="canvasLocation" x="330" y="1012"/>
         </scene>
     </scenes>
     <resources>
         <image name="defaultphoto" width="540" height="540"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="F4k-kF-sKX"/>
+        <segue reference="9oP-t3-7Td"/>
     </inferredMetricsTieBreakers>
 </document>
